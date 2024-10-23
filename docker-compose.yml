@@ -3,9 +3,9 @@ version: '3.8'
 services:
   react-app:
     image: node:20
-    working_dir: /skin
+    working_dir: /app/skin
     volumes:
-      - .:/skin
+      - ./:/app
     ports:
       - "3000:3000"
     command: sh -c "npm install && npm start"
