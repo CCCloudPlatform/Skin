@@ -1,0 +1,113 @@
+.vm-info {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.vm-info:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.vm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.vm-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.vm-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.vm-status[data-status="active"] { background-color: #28a745; color: white; }
+.vm-status[data-status="stopped"] { background-color: #dc3545; color: white; }
+.vm-status[data-status="pending"] { background-color: #ffc107; color: black; }
+
+.vm-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.vm-detail {
+  display: flex;
+  align-items: center;
+  flex: 1 0 calc(50% - 0.5rem);
+}
+
+.vm-detail svg {
+  width: 16px;
+  margin-right: 0.5rem;
+  color: #666;
+}
+
+.vm-detail span {
+  font-weight: bold;
+  margin-right: 0.25rem;
+  color: #444;
+}
+
+.vm-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.vm-control-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.vm-control-btn svg {
+  margin-right: 0.5rem;
+}
+
+.vm-control-btn.shutdown { background-color: #dc3545; color: white; }
+.vm-control-btn.reboot { background-color: #ffc107; color: black; }
+.vm-control-btn.power-on { background-color: #28a745; color: white; }
+.vm-control-btn.delete { background-color: #6c757d; color: white; }
+
+.vm-control-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .vm-detail {
+    flex: 1 0 100%;
+  }
+  
+  .vm-controls {
+    justify-content: flex-start;
+  }
+}

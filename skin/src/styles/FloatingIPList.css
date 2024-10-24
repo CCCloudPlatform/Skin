@@ -1,0 +1,88 @@
+.floating-ip-list {
+  margin-top: 2rem;
+}
+
+.floating-ip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.floating-ip-header h2 {
+  margin: 0;
+}
+
+.request-ip-btn {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.request-ip-btn:hover {
+  background-color: #0056b3;
+}
+
+.request-ip-btn svg {
+  margin-right: 0.5rem;
+}
+
+.floating-ip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.floating-ip-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+}
+
+.ip-icon {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-right: 1rem;
+}
+
+.ip-details {
+  flex-grow: 1;
+}
+
+.ip-address {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.ip-status {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.ip-status[data-status="사용가능"] { background-color: #28a745; color: white; }
+.ip-status[data-status="사용중"] { background-color: #17a2b8; color: white; }
+.ip-status[data-status="신청완료"] { background-color: #ffc107; color: black; }
+.ip-status[data-status="거절됨"] { background-color: #dc3545; color: white; }
+
+.delete-ip-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.delete-ip-btn:hover {
+  color: #bd2130;
+}
