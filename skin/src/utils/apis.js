@@ -152,4 +152,58 @@ export const fetchSecurityGroups = async () => {
   ];
 };
 
+export const fetchLocations = async () => {
+  // 더미 데이터 반환
+  return [
+    { id: 'loc1', name: 'Seoul' },
+    { id: 'loc2', name: 'Busan' },
+    { id: 'loc3', name: 'Daejeon' }
+  ];
+};
+
+export const fetchResources = async () => {
+  // 더미 데이터 반환
+  return [
+    { id: 'res1', name: 'Small (1 vCPU, 2GB RAM)', cpu: 1, ram: 2 },
+    { id: 'res2', name: 'Medium (2 vCPU, 4GB RAM)', cpu: 2, ram: 4 },
+    { id: 'res3', name: 'Large (4 vCPU, 8GB RAM)', cpu: 4, ram: 8 }
+  ];
+};
+
+export const fetchNetworks = async () => {
+  // 더미 데이터 반환
+  return [
+    { id: 'net1', name: 'Public Network', type: 'public' },
+    { id: 'net2', name: 'Research Network', type: 'research' }
+  ];
+};
+
+export const fetchKeypairs = async () => {
+  // 더미 데이터 반환
+  return [
+    { id: 'key1', name: 'my-key-1' },
+    { id: 'key2', name: 'my-key-2' },
+    { id: 'key3', name: 'my-key-3' }
+  ];
+};
+
+export const fetchOSImages = async () => {
+  // 더미 데이터 반환
+  return [
+    { id: 'os1', name: 'Ubuntu 20.04 LTS' },
+    { id: 'os2', name: 'CentOS 8' },
+    { id: 'os3', name: 'Windows Server 2019' }
+  ];
+};
+
+export const createVM = async (vmData) => {
+  // VM 생성 요청을 시뮬레이션하고 더미 응답 반환
+  console.log('Creating VM with data:', vmData);
+  return {
+    success: true,
+    message: 'VM created successfully',
+    vmId: 'vm-' + Math.random().toString(36).substr(2, 9)
+  };
+};
+
 export default api;

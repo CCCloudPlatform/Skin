@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import ServiceOverview from './pages/ServiceOverview';
 import VMMainPage from './pages/VMMainPage';
+import VMCreatePage from './pages/VMCreatePage';
 
 
 // Create a client
@@ -16,8 +17,9 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/service-overview" element={<ServiceOverview />} />
-            <Route path="/vm-management" element={<VMMainPage />} />
+            <Route path="/services" element={<ServiceOverview />} />
+            <Route path="/vm" element={<VMMainPage />} />
+            <Route path="/vm/create" element={<VMCreatePage />} />
             {/* Add more routes here as needed */}
           </Routes>
         </div>
