@@ -1,12 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import VMInfo from './VMInfo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 import '../styles/PrivateNetwork.css';
 
 function PrivateNetwork({ network }) {
+  const navigate = useNavigate();
+
   const handleAddVM = () => {
-    console.log('Add VM to network:', network.id);
+    // '/vm/create' 페이지로 이동하면서 network.id를 state로 전달
+    navigate('/vm/create', { state: { networkId: network.id } });
   };
 
   return (

@@ -15,13 +15,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { fetchLocations, fetchResources, fetchPrivateNetworks, fetchNetworks, fetchSecurityGroups, fetchKeypairs, fetchOSImages, createVM } from '../utils/apis';
 
-function VMCreateForm() {
+function VMCreateForm({ initialNetworkId }) {
   const [formData, setFormData] = useState({
     name: '',
     quantity: 1,
     location: '',
     resource: '',
-    privateNetwork: '',
+    privateNetwork: initialNetworkId || '',
     network: '',
     securityGroup: '',
     pemkey: '',
@@ -67,10 +67,18 @@ function VMCreateForm() {
         keypairs,
         osImages
       });
+
+      // If initialNetworkId is provided, set the privateNetwork value
+      if (initialNetworkId) {
+        setFormData(prevData => ({
+          ...prevData,
+          privateNetwork: initialNetworkId
+        }));
+      }
     };
 
     fetchOptions();
-  }, []);
+  }, [initialNetworkId]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

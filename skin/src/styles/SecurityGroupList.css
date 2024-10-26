@@ -7,11 +7,13 @@
   align-items: center;
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #E8E4D8;
+  font-weight: 200;
 }
 
 .security-group-list h2 svg {
   margin-right: 0.5rem;
+  color: #E8E4D8;
 }
 
 .security-group-grid {
@@ -21,8 +23,8 @@
 }
 
 .security-group-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -32,7 +34,8 @@
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  color: #333;
+  color: #E8E4D8;
+  font-weight: 200;
 }
 
 .policy-list {
@@ -46,10 +49,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   margin-bottom: 0.5rem;
+  color: #E8E4D8;
 }
 
 .delete-policy-btn {
@@ -71,8 +75,8 @@
   justify-content: center;
   width: 100%;
   padding: 0.5rem;
-  background-color: #28a745;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #E8E4D8;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -81,9 +85,10 @@
 }
 
 .add-policy-btn:hover {
-  background-color: #218838;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .add-policy-btn svg {
   margin-right: 0.5rem;
+  color: #E8E4D8;
 }
