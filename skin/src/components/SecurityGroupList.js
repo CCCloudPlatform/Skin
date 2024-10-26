@@ -18,7 +18,7 @@ function SecurityGroupList({ securityGroups, onAddPolicy, onDeletePolicy }) {
 
   return (
     <div className="security-group-list">
-      <h2><FontAwesomeIcon icon={faShieldAlt} /> Security Groups</h2>
+      
       <div className="security-group-grid">
         {securityGroups.map((group) => (
           <div key={group.id} className="security-group-card">

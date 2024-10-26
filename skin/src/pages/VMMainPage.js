@@ -5,7 +5,7 @@ import PrivateNetwork from '../components/PrivateNetwork';
 import FloatingIPList from '../components/FloatingIPList';
 import SecurityGroupList from '../components/SecurityGroupList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faNetworkWired, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faNetworkWired, faGlobe, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { fetchPrivateNetworks, fetchVMList, fetchFloatingIPs, fetchSecurityGroups } from '../utils/apis';
 import '../styles/VMMainPage.css';
 
@@ -21,13 +21,14 @@ function VMMainPage() {
       const vmList = await fetchVMList();
       const ipList = await fetchFloatingIPs();
       const sgList = await fetchSecurityGroups();
-setSecurityGroups(sgList);
+      setSecurityGroups(sgList);
       setPrivateNetworks(networks);
       setVMs(vmList);
       setFloatingIPs(ipList);
     };
-    fetchData() ;
+    fetchData();
   }, []);
+
   const networksWithVMs = privateNetworks.map(network => ({
     ...network,
     vms: vms.filter(vm => vm.networkId === network.id)
@@ -71,6 +72,7 @@ setSecurityGroups(sgList);
               <FloatingIPList floatingIPs={floatingIPs} onRequestIP={handleRequestFloatingIP} />
             </div>
             <div className="security-groups-section">
+              <h2><FontAwesomeIcon icon={faShieldAlt} /> Security Groups</h2>
               <SecurityGroupList securityGroups={securityGroups} />
             </div>
           </div>

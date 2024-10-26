@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import '../styles/Nav.css';
 import { login, register, checkIdDuplicate, logout, isLoggedIn } from '../utils/apis';
@@ -82,14 +83,19 @@ function Nav() {
 
   return (
     <nav className="nav">
-      <div className="nav-logo">Logo</div>
+      <Link to="/" className="nav-logo-link">
+        <div className="nav-logo">
+          <span className="logo-text">CloudPlatform</span>
+          <span className="logo-superscript">CLCL</span>
+        </div>
+      </Link>
       <div className="nav-links">
         {loggedIn ? (
           <button className="nav-button" onClick={handleLogout}>로그아웃</button>
         ) : (
           <>
             <span onClick={openLoginModal} className="login-link">이미 계정이 있으신가요?</span>
-            <button className="nav-button primary" onClick={openSignupModal}>Get Started</button>
+            <button className="nav-button primary" onClick={openSignupModal}>GET STARTED</button>
           </>
         )}
       </div>
@@ -97,95 +103,111 @@ function Nav() {
         isOpen={loginModalIsOpen}
         onRequestClose={closeLoginModal}
         contentLabel="Login Modal"
-        className="modal"
+        className="modal login-modal"
         overlayClassName="overlay"
       >
-        <h2>로그인</h2>
+        <h2 className="modal-title">로그인</h2>
         {error && <p className="error">{error}</p>}
-        <form onSubmit={handleLogin}>
-          <input 
-            type="text" 
-            name="username" 
-            placeholder="Username" 
-            value={loginForm.username}
-            onChange={handleLoginChange}
-          />
-          <input 
-            type="password" 
-            name="password" 
-            placeholder="Password" 
-            value={loginForm.password}
-            onChange={handleLoginChange}
-          />
-          <label>
-            <input
-              type="checkbox"
-              name="rememberMe"
-              checked={loginForm.rememberMe}
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="input-group">
+            <input 
+              type="text" 
+              name="username" 
+              placeholder="아이디" 
+              value={loginForm.username}
               onChange={handleLoginChange}
+              required
             />
-            로그인 정보 저장
-          </label>
-          <button type="submit">로그인</button>
+          </div>
+          <div className="input-group">
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="비밀번호" 
+              value={loginForm.password}
+              onChange={handleLoginChange}
+              required
+            />
+          </div>
+          <div className="checkbox-group">
+            <label>
+              <input
+                type="checkbox"
+                name="rememberMe"
+                checked={loginForm.rememberMe}
+                onChange={handleLoginChange}
+              />
+              <span>로그인 정보 저장</span>
+            </label>
+          </div>
+          <button type="submit" className="submit-button">로그인</button>
         </form>
-        <button onClick={closeLoginModal}>닫기</button>
+        <button onClick={closeLoginModal} className="close-button">닫기</button>
       </Modal>
       <Modal
         isOpen={signupModalIsOpen}
         onRequestClose={closeSignupModal}
         contentLabel="Signup Modal"
-        className="modal"
+        className="modal signup-modal"
         overlayClassName="overlay"
       >
-        <h2>회원가입</h2>
+        <h2 className="modal-title">회원가입</h2>
         {error && <p className="error">{error}</p>}
-        <form onSubmit={handleSignup}>
-          <input
-            type="text"
-            name="name"
-            placeholder="이름"
-            value={signupForm.name}
-            onChange={handleSignupChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={signupForm.email}
-            onChange={handleSignupChange}
-            required
-          />
-          <input
-            type="text"
-            name="role"
-            placeholder="직위(Role)"
-            value={signupForm.role}
-            onChange={handleSignupChange}
-            required
-          />
-          <div className="id-check-container">
+        <form onSubmit={handleSignup} className="signup-form">
+          <div className="input-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="이름"
+              value={signupForm.name}
+              onChange={handleSignupChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="이메일"
+              value={signupForm.email}
+              onChange={handleSignupChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="text"
+              name="role"
+              placeholder="직위"
+              value={signupForm.role}
+              onChange={handleSignupChange}
+              required
+            />
+          </div>
+          <div className="input-group id-check-container">
             <input
               type="text"
               name="id"
-              placeholder="아이디 (ID)"
+              placeholder="아이디"
               value={signupForm.id}
               onChange={handleSignupChange}
               required
             />
-            <button type="button" onClick={handleCheckIdDuplicate}>중복체크</button>
+            <button type="button" onClick={handleCheckIdDuplicate} className="id-check-button">중복확인</button>
           </div>
-          <input
-            type="password"
-            name="password"
-            placeholder="비밀번호 (PW)"
-            value={signupForm.password}
-            onChange={handleSignupChange}
-            required
-          />
-          <button type="submit">회원가입</button>
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+              value={signupForm.password}
+              onChange={handleSignupChange}
+              required
+            />
+          </div>
+          <button type="submit" className="submit-button">가입하기</button>
         </form>
-        <button onClick={closeSignupModal}>닫기</button>
+        <button onClick={closeSignupModal} className="close-button">닫기</button>
       </Modal>
     </nav>
   );

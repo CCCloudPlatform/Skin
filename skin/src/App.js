@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ServiceOverview from './pages/ServiceOverview';
 import VMMainPage from './pages/VMMainPage';
 import VMCreatePage from './pages/VMCreatePage';
+import './App.css';
 
 
 // Create a client
@@ -14,7 +15,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="App">
+        
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<ServiceOverview />} />
@@ -22,10 +23,11 @@ function App() {
             <Route path="/vm/create" element={<VMCreatePage />} />
             {/* Add more routes here as needed */}
           </Routes>
-        </div>
+        
       </Router>
     </QueryClientProvider>
   );
 }
 
 export default App;
+
